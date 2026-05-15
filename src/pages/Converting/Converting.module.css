@@ -136,3 +136,51 @@
   height: 32px;
   background: rgba(193, 198, 215, 0.3);
 }
+
+@media (max-width: 768px) {
+  .inner {
+    gap: 32px;
+  }
+
+  .progressInner {
+    width: 240px;
+    height: 240px;
+  }
+
+  .floatingInsight {
+    position: static;
+    transform: none;
+    margin-top: 24px;
+  }
+
+  .statsPanel {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 24px;
+  }
+
+  .statDivider {
+    width: 100%;
+    height: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    min-height: 50vh;
+  }
+
+  .progressInner {
+    width: 200px;
+    height: 200px;
+  }
+
+  .actions {
+    padding-top: 24px;
+    gap: 16px;
+  }
+
+  .cancelIcon {
+    font-size: 18px;
+  }
+}

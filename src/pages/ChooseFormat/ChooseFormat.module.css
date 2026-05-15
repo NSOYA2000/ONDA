@@ -136,3 +136,53 @@
 .privacyNoticeTop {
   margin-top: 48px;
 }
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .formatPanel {
+    padding: 24px;
+  }
+
+  .techImage {
+    height: 140px;
+  }
+
+  .emptyState {
+    padding: 96px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .fileCardMeta {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .formatPanelTitle {
+    margin-bottom: 24px;
+  }
+
+  .audioSection {
+    margin-bottom: 28px;
+  }
+
+  .videoSection {
+    margin-bottom: 32px;
+  }
+
+  .startSection {
+    padding-top: 24px;
+  }
+
+  .privacyNoticeTop {
+    margin-top: 32px;
+  }
+
+  .btnIcon {
+    font-size: 18px;
+  }
+}

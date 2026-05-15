@@ -141,3 +141,47 @@
 .securityBadgeLabel {
   color: var(--on-surface-variant);
 }
+
+@media (max-width: 768px) {
+  .container {
+    gap: 32px;
+  }
+
+  .fileCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .buttonRow {
+    grid-template-columns: 1fr;
+  }
+
+  .securityBadges {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .emptyState {
+    padding: 96px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    gap: 24px;
+  }
+
+  .checkIcon {
+    font-size: 36px;
+  }
+
+  .securityBadges {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .btnIcon {
+    font-size: 18px;
+  }
+}

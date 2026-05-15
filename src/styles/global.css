@@ -974,10 +974,142 @@ body {
 /* ============================================
    Responsive
    ============================================ */
+
+/* --- Small phones (≤480px) --- */
+@media (max-width: 480px) {
+  .app-header {
+    height: 56px;
+  }
+
+  .app-logo {
+    font-size: 20px;
+  }
+
+  .app-nav {
+    gap: 12px;
+  }
+
+  .app-nav-link {
+    font-size: 11px;
+  }
+
+  .privacy-badge {
+    display: none;
+  }
+
+  .app-main {
+    padding-top: 96px;
+    padding-bottom: 40px;
+  }
+
+  .hero {
+    margin-bottom: 64px;
+  }
+
+  .hero h1 {
+    margin-bottom: 16px;
+  }
+
+  .hero p {
+    font-size: var(--text-body-md);
+    line-height: var(--text-body-md-lh);
+    margin-bottom: 32px;
+    padding: 0 8px;
+  }
+
+  .drop-zone {
+    padding: 16px;
+  }
+
+  .drop-zone-inner {
+    padding: 32px 16px;
+  }
+
+  .drop-zone-icon-circle {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+  }
+
+  .drop-zone-title {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .btn-primary {
+    padding: 14px 24px;
+    font-size: 13px;
+  }
+
+  .btn-full {
+    height: 48px;
+    font-size: 13px;
+  }
+
+  .btn-ghost {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .btn-secondary {
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .benefits-section {
+    padding: 64px 0;
+  }
+
+  .benefit-card {
+    padding: 24px;
+  }
+
+  .tech-section {
+    padding: 64px 0;
+  }
+
+  .file-card {
+    padding: 20px;
+  }
+
+  .format-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .format-tile {
+    padding: 12px 8px;
+  }
+
+  .app-footer {
+    padding: 32px 0;
+  }
+
+  .app-footer-inner {
+    gap: 24px;
+  }
+}
+
+/* --- Tablets and larger phones (≤768px) --- */
 @media (max-width: 768px) {
   .display-lg {
     font-size: var(--text-display-lg-mobile);
     line-height: var(--text-display-lg-mobile-lh);
+  }
+
+  .headline-lg {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .headline-md {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .body-lg {
+    font-size: var(--text-body-md);
+    line-height: var(--text-body-md-lh);
   }
 
   .app-header-inner,
@@ -989,8 +1121,50 @@ body {
     padding-right: var(--margin-mobile);
   }
 
+  .app-header {
+    height: 60px;
+  }
+
+  .app-logo {
+    font-size: 22px;
+  }
+
+  .app-nav {
+    gap: 16px;
+  }
+
+  .app-main {
+    padding-top: 108px;
+    padding-bottom: 48px;
+  }
+
+  .hero {
+    margin-bottom: 80px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+  }
+
+  .hero p {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .drop-zone-inner {
+    padding: 40px 16px;
+  }
+
+  .benefits-section {
+    padding: 80px 0;
+  }
+
   .benefits-grid {
     grid-template-columns: 1fr;
+  }
+
+  .tech-section {
+    padding: 80px 0;
   }
 
   .tech-grid {
@@ -1000,6 +1174,14 @@ body {
 
   .tech-floating-card {
     display: none;
+  }
+
+  .tech-image-wrap {
+    transform: none;
+  }
+
+  .tech-image-wrap img {
+    height: 240px;
   }
 
   .format-grid {
@@ -1013,8 +1195,18 @@ body {
   .app-footer-links {
     justify-content: flex-start;
   }
+}
 
-  .app-nav {
-    gap: 16px;
+/* --- Touch-friendly tweaks --- */
+@media (hover: none) and (pointer: coarse) {
+  .format-tile {
+    min-height: 64px;
+  }
+
+  .btn-primary,
+  .btn-full,
+  .btn-secondary,
+  .btn-ghost {
+    min-height: 44px;
   }
 }

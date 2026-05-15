@@ -100,3 +100,64 @@
   color: var(--on-surface-variant);
   line-height: 1.6;
 }
+
+@media (max-width: 768px) {
+  .hero {
+    margin-bottom: 32px;
+  }
+
+  .heroTitle {
+    font-size: 32px;
+  }
+
+  .section {
+    margin-bottom: 32px;
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 2fr 72px;
+    padding: 12px 16px;
+  }
+
+  .note {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 28px;
+  }
+
+  .table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 64px 1fr 56px;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .formatExt {
+    font-size: 14px;
+  }
+
+  .formatDesc {
+    font-size: 12px;
+  }
+
+  .categoryBadge {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+
+  .noteInner {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

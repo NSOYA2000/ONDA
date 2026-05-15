@@ -118,3 +118,54 @@
   line-height: 1.6;
   padding-left: 26px;
 }
+
+@media (max-width: 768px) {
+  .hero {
+    margin-bottom: 40px;
+  }
+
+  .heroTitle {
+    font-size: 32px;
+  }
+
+  .illustrationCard {
+    padding: 40px 24px;
+    margin-bottom: 32px;
+  }
+
+  .illustrationIcon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .featureCard {
+    padding: 20px;
+  }
+
+  .featuresList {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 28px;
+  }
+
+  .illustrationCard {
+    padding: 32px 16px;
+  }
+
+  .illustrationIcon {
+    font-size: 40px;
+  }
+
+  .featureInner {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faqAnswer {
+    padding-left: 0;
+  }
+}
