@@ -1119,6 +1119,11 @@ body {
   .app-footer-inner {
     padding-left: var(--margin-mobile);
     padding-right: var(--margin-mobile);
+    grid-template-columns: 1fr;
+  }
+
+  .app-footer-links {
+    justify-content: flex-start;
   }
 
   .app-header {

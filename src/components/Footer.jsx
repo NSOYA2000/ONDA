@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="app-footer-inner">
         <div>
           <span className="app-footer-brand">Onda</span>
-          <p className="app-footer-copy">&copy; 2024 Onda. Local-first AV processing.</p>
+          <p className="app-footer-copy">&copy; 2026 Onda. Local-first AV processing.</p>
         </div>
         <div className="app-footer-links">
           <button onClick={() => navigate('/how-it-works')}>How it works</button>
