@@ -1115,7 +1115,11 @@ body {
   .app-header-inner,
   .app-main,
   .benefits-grid,
-  .tech-grid,
+  .tech-grid {
+    padding-left: var(--margin-mobile);
+    padding-right: var(--margin-mobile);
+  }
+
   .app-footer-inner {
     padding-left: var(--margin-mobile);
     padding-right: var(--margin-mobile);
@@ -1123,6 +1127,9 @@ body {
   }
 
   .app-footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
     justify-content: flex-start;
   }
 
@@ -1198,6 +1205,9 @@ body {
   }
 
   .app-footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
     justify-content: flex-start;
   }
 }
