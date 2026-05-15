@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppContext } from '../context/AppContext';
+import { useAppContext } from '../../context/AppContext';
+import styles from './ChooseFormat.module.css';
 
 const AUDIO_FORMATS = [
   { ext: 'MP3', desc: '最常用', target: 'mp3' },
@@ -36,8 +37,8 @@ export default function ChooseFormat() {
 
   if (!file) {
     return (
-      <div style={{ textAlign: 'center', padding: '128px 0' }}>
-        <p className="body-lg" style={{ color: 'var(--on-surface-variant)', marginBottom: 24 }}>
+      <div className={styles.emptyState}>
+        <p className={`body-lg ${styles.emptyStateText}`}>
           请先选择文件
         </p>
         <button className="btn-primary" onClick={() => navigate('/')}>
@@ -54,74 +55,66 @@ export default function ChooseFormat() {
   };
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '5fr 7fr', gap: 'var(--space-gutter)', alignItems: 'start' }}>
+    <div className={styles.grid}>
       {/* Left: File Info */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+      <div className={styles.leftCol}>
         <div className="file-card glass-panel">
           <div className="file-card-header">
             <div className="file-card-icon">
               <span className="material-symbols-outlined" style={{ fontSize: 32 }}>audio_file</span>
             </div>
             <div>
-              <h2 className="headline-md" style={{ color: 'var(--on-surface)' }}>已选择文件</h2>
-              <p className="body-md" style={{ color: 'var(--on-surface-variant)' }}>本地处理，隐私无忧</p>
+              <h2 className={`headline-md ${styles.fileCardTitle}`}>已选择文件</h2>
+              <p className={`body-md ${styles.fileCardSubtitle}`}>本地处理，隐私无忧</p>
             </div>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+          <div className={styles.fileCardBody}>
             <div className="file-card-field">
               <span className="file-card-label">文件名</span>
-              <span className="file-card-value" style={{ wordBreak: 'break-all' }}>{file.name}</span>
+              <span className={`file-card-value ${styles.fileNameValue}`}>{file.name}</span>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div className={styles.fileCardMeta}>
               <div className="file-card-field">
                 <span className="file-card-label">文件大小</span>
-                <span className="file-card-value" style={{ fontSize: 'var(--text-body-md)', fontWeight: 500 }}>
+                <span className={`file-card-value ${styles.fileMetaValue}`}>
                   {formatBytes(file.size)}
                 </span>
               </div>
               <div className="file-card-field">
                 <span className="file-card-label">原始格式</span>
-                <span className="file-card-value" style={{ fontSize: 'var(--text-body-md)', fontWeight: 500 }}>
+                <span className={`file-card-value ${styles.fileMetaValue}`}>
                   {getExt(file.name)} {file.type ? `(${file.type.split('/').pop()})` : ''}
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="privacy-notice" style={{ marginTop: 48 }}>
+          <div className={`privacy-notice ${styles.privacyNoticeTop}`}>
             <span className="material-symbols-outlined" style={{ fontSize: 20 }}>info</span>
             <p>文件将保持在本地。Onda 不会上传您的任何数据到云端服务器。</p>
           </div>
         </div>
 
         {/* Tech visualization image */}
-        <div style={{
-          height: 192, borderRadius: 'var(--radius-xl)', overflow: 'hidden',
-          position: 'relative', border: '1px solid rgba(193,198,215,0.2)', boxShadow: 'var(--shadow-sm)',
-        }}>
+        <div className={styles.techImage}>
           <img
             src={import.meta.env.BASE_URL + "images/tech-wave.jpg"}
             alt="Tech visualization"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            className={styles.techImageImg}
           />
         </div>
       </div>
 
       {/* Right: Format Selection */}
-      <div style={{
-        padding: 32, background: 'var(--surface-container-lowest)',
-        border: '1px solid var(--outline-variant)', borderRadius: 'var(--radius-xl)',
-        boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
-        display: 'flex', flexDirection: 'column', height: 'fit-content',
-      }}>
-        <h3 className="headline-md" style={{ marginBottom: 32 }}>选择目标格式</h3>
+      <div className={styles.formatPanel}>
+        <h3 className={`headline-md ${styles.formatPanelTitle}`}>选择目标格式</h3>
 
         {/* Audio Formats */}
-        <div style={{ marginBottom: 40 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
-            <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--on-surface-variant)' }}>volume_up</span>
-            <h4 className="label-md" style={{ color: 'var(--on-surface-variant)' }}>音频格式</h4>
+        <div className={styles.audioSection}>
+          <div className={styles.formatSectionHeader}>
+            <span className={`material-symbols-outlined ${styles.formatSectionIcon}`}>volume_up</span>
+            <h4 className={`label-md ${styles.formatSectionLabel}`}>音频格式</h4>
           </div>
           <div className="format-grid">
             {AUDIO_FORMATS.map((f) => (
@@ -138,10 +131,10 @@ export default function ChooseFormat() {
         </div>
 
         {/* Video Formats */}
-        <div style={{ marginBottom: 48 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
-            <span className="material-symbols-outlined" style={{ fontSize: 20, color: 'var(--on-surface-variant)' }}>movie</span>
-            <h4 className="label-md" style={{ color: 'var(--on-surface-variant)' }}>视频格式</h4>
+        <div className={styles.videoSection}>
+          <div className={styles.formatSectionHeader}>
+            <span className={`material-symbols-outlined ${styles.formatSectionIcon}`}>movie</span>
+            <h4 className={`label-md ${styles.formatSectionLabel}`}>视频格式</h4>
           </div>
           <div className="format-grid">
             {VIDEO_FORMATS.map((f) => (
@@ -155,21 +148,21 @@ export default function ChooseFormat() {
               </button>
             ))}
             <div className="format-tile disabled">
-              <span className="format-tile-name" style={{ color: 'var(--outline)' }}>更多</span>
-              <span className="format-tile-desc" style={{ color: 'var(--outline)' }}>敬请期待</span>
+              <span className={`format-tile-name ${styles.moreFormatName}`}>更多</span>
+              <span className={`format-tile-desc ${styles.moreFormatDesc}`}>敬请期待</span>
             </div>
           </div>
         </div>
 
         {/* Start Button */}
-        <div style={{ marginTop: 'auto', paddingTop: 32, borderTop: '1px solid rgba(193,198,215,0.2)' }}>
+        <div className={styles.startSection}>
           <button className="btn-full" disabled={!selected} onClick={handleStart}>
-            <span className="material-symbols-outlined" style={{ fontSize: 20 }}>bolt</span>
+            <span className={`material-symbols-outlined ${styles.btnIcon}`}>bolt</span>
             开始转换
           </button>
           {selected && (
-            <p style={{ textAlign: 'center', marginTop: 16 }} className="label-sm" >
-              <span style={{ color: 'var(--outline)' }}>转换时长预计: &lt; 5 秒</span>
+            <p className={`label-sm ${styles.startHint}`}>
+              <span className={styles.startHintColor}>转换时长预计: &lt; 5 秒</span>
             </p>
           )}
         </div>

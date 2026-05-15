@@ -1,3 +1,5 @@
+import styles from './SupportedFormats.module.css';
+
 const AUDIO_FORMATS = [
   { ext: 'MP3', desc: '通用音频格式，兼容性最佳', category: '常用' },
   { ext: 'WAV', desc: '无损音频格式，保留完整音质', category: '无损' },
@@ -29,44 +31,32 @@ const categoryColors = {
 
 function FormatTable({ title, icon, formats }) {
   return (
-    <div style={{ marginBottom: 48 }}>
-      <h2 className="label-md" style={{
-        color: 'var(--on-surface-variant)', textTransform: 'uppercase',
-        letterSpacing: '0.05em', marginBottom: 16,
-        display: 'flex', alignItems: 'center', gap: 8,
-      }}>
-        <span className="material-symbols-outlined" style={{ fontSize: 20 }}>{icon}</span>
+    <div className={styles.section}>
+      <h2 className={`label-md ${styles.sectionHeader}`}>
+        <span className={`material-symbols-outlined ${styles.sectionHeaderIcon}`}>{icon}</span>
         {title}
       </h2>
-      <div className="glass-panel" style={{ borderRadius: 'var(--radius-xl)', overflow: 'hidden' }}>
-        {/* Header */}
-        <div style={{
-          display: 'grid', gridTemplateColumns: '1fr 2fr auto',
-          padding: '12px 24px', background: 'rgba(0,0,0,0.02)',
-          fontSize: 12, fontWeight: 600, color: 'var(--on-surface-variant)',
-          textTransform: 'uppercase', letterSpacing: '0.05em',
-        }}>
+      <div className={`glass-panel ${styles.table}`}>
+        <div className={styles.tableHeader}>
           <span>格式</span>
           <span>说明</span>
           <span>分类</span>
         </div>
         {formats.map((f) => (
-          <div key={f.ext} style={{
-            display: 'grid', gridTemplateColumns: '1fr 2fr auto',
-            padding: '14px 24px', borderTop: '1px solid rgba(0,0,0,0.04)',
-            alignItems: 'center',
-          }}>
-            <span style={{ fontSize: 16, fontWeight: 600, color: 'var(--on-surface)' }}>
+          <div key={f.ext} className={styles.tableRow}>
+            <span className={styles.formatExt}>
               .{f.ext}
             </span>
-            <span style={{ fontSize: 14, color: 'var(--on-surface-variant)' }}>
+            <span className={styles.formatDesc}>
               {f.desc}
             </span>
-            <span style={{
-              fontSize: 11, fontWeight: 600, padding: '3px 10px',
-              borderRadius: 20, color: categoryColors[f.category],
-              background: `${categoryColors[f.category]}15`,
-            }}>
+            <span
+              className={styles.categoryBadge}
+              style={{
+                color: categoryColors[f.category],
+                background: `${categoryColors[f.category]}15`,
+              }}
+            >
               {f.category}
             </span>
           </div>
@@ -79,11 +69,11 @@ function FormatTable({ title, icon, formats }) {
 export default function SupportedFormats() {
   return (
     <>
-      <div className="hero" style={{ marginBottom: 48 }}>
-        <h1 className="display-lg" style={{ fontSize: 40 }}>
+      <div className={`hero ${styles.hero}`}>
+        <h1 className={`display-lg ${styles.heroTitle}`}>
           支持格式
         </h1>
-        <p className="body-lg" style={{ color: 'var(--on-surface-variant)' }}>
+        <p className={`body-lg ${styles.heroSubtitle}`}>
           Onda 支持主流音频和视频格式的互转。以下是完整的格式兼容列表。
         </p>
       </div>
@@ -92,16 +82,16 @@ export default function SupportedFormats() {
       <FormatTable title="视频格式" icon="movie" formats={VIDEO_FORMATS} />
 
       {/* Note */}
-      <div className="glass-panel" style={{ padding: 24, borderRadius: 'var(--radius-xl)', marginBottom: 32 }}>
-        <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-          <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: 18, marginTop: 2 }}>
+      <div className={`glass-panel ${styles.note}`}>
+        <div className={styles.noteInner}>
+          <span className={`material-symbols-outlined ${styles.noteIcon}`}>
             check_circle
           </span>
           <div>
-            <h3 className="label-md" style={{ marginBottom: 4, color: 'var(--on-surface)' }}>
+            <h3 className={`label-md ${styles.noteTitle}`}>
               持续更新中
             </h3>
-            <p className="body-md" style={{ color: 'var(--on-surface-variant)', lineHeight: 1.6 }}>
+            <p className={`body-md ${styles.noteDesc}`}>
               我们正在不断添加更多格式支持。如果您需要的格式暂未列出，
               请随时联系我们，我们会优先考虑您的需求。
             </p>

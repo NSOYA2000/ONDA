@@ -1,0 +1,138 @@
+/* Converting page specific styles */
+
+.wrapper {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.inner {
+  max-width: 640px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+}
+
+.fileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fileChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: center;
+  padding: 8px 16px;
+  background: rgba(224, 227, 230, 0.5);
+  border-radius: var(--radius-full);
+  color: var(--on-secondary-container);
+}
+
+.fileChipIcon {
+  font-size: 20px;
+}
+
+.subtitle {
+  color: var(--on-surface-variant);
+}
+
+.progressWrap {
+  position: relative;
+}
+
+.progressInner {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+
+.progressCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.progressPercent {
+  color: var(--primary);
+}
+
+.floatingInsight {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px 24px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(193, 198, 215, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  white-space: nowrap;
+}
+
+.floatingInsightIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-fixed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--on-primary-fixed);
+}
+
+.insightTitle {
+  color: var(--on-surface);
+}
+
+.insightSubtitle {
+  color: var(--on-surface-variant);
+}
+
+.actions {
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.cancelIcon {
+  font-size: 20px;
+}
+
+.statsPanel {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 16px 32px;
+  background: var(--surface-container-low);
+  border-radius: 16px;
+  border: 1px solid rgba(193, 198, 215, 0.1);
+}
+
+.statLabel {
+  color: var(--outline);
+}
+
+.statValue {
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+.statDivider {
+  width: 1px;
+  height: 32px;
+  background: rgba(193, 198, 215, 0.3);
+}

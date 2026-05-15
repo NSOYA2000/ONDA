@@ -1,0 +1,102 @@
+/* SupportedFormats page specific styles */
+
+.hero {
+  margin-bottom: 48px;
+}
+
+.heroTitle {
+  font-size: 40px;
+}
+
+.heroSubtitle {
+  color: var(--on-surface-variant);
+}
+
+.section {
+  margin-bottom: 48px;
+}
+
+.sectionHeader {
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sectionHeaderIcon {
+  font-size: 20px;
+}
+
+.table {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, 0.02);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  padding: 14px 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  align-items: center;
+}
+
+.formatExt {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.formatDesc {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+}
+
+.categoryBadge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.note {
+  padding: 24px;
+  border-radius: var(--radius-xl);
+  margin-bottom: 32px;
+}
+
+.noteInner {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.noteIcon {
+  color: var(--primary);
+  font-size: 18px;
+  margin-top: 2px;
+}
+
+.noteTitle {
+  margin-bottom: 4px;
+  color: var(--on-surface);
+}
+
+.noteDesc {
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+}

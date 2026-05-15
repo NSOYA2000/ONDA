@@ -1,3 +1,5 @@
+import styles from './HowItWorks.module.css';
+
 const TECH_FEATURES = [
   {
     icon: 'memory',
@@ -40,44 +42,39 @@ export default function HowItWorks() {
   return (
     <>
       {/* Hero */}
-      <div className="hero" style={{ marginBottom: 64 }}>
-        <h1 className="display-lg" style={{ fontSize: 40 }}>
+      <div className={`hero ${styles.hero}`}>
+        <h1 className={`display-lg ${styles.heroTitle}`}>
           工作原理
         </h1>
-        <p className="body-lg" style={{ color: 'var(--on-surface-variant)' }}>
+        <p className={`body-lg ${styles.heroSubtitle}`}>
           了解 Onda 如何在浏览器中实现专业级的音视频转码性能。
         </p>
       </div>
 
       {/* Illustration Card */}
-      <div className="glass-panel" style={{ padding: 64, textAlign: 'center', marginBottom: 48, borderRadius: 'var(--radius-xl)' }}>
-        <span className="material-symbols-outlined" style={{ fontSize: 64, color: 'var(--primary)', marginBottom: 24 }}>
-          memory
-        </span>
-        <h2 className="headline-md" style={{ marginBottom: 12 }}>浏览器即转码引擎</h2>
-        <p style={{ fontSize: 'var(--text-body-md)', color: 'var(--on-surface-variant)', maxWidth: 400, margin: '0 auto', lineHeight: 1.6 }}>
+      <div className={`glass-panel ${styles.illustrationCard}`}>
+        <div className={styles.illustrationIcon}>
+          <span className="material-symbols-outlined">memory</span>
+        </div>
+        <h2 className={`headline-md ${styles.illustrationTitle}`}>浏览器即转码引擎</h2>
+        <p className={styles.illustrationDesc}>
           WebAssembly + 现代浏览器内核结合，将桌面级转码引擎无缝搬进浏览器。
         </p>
       </div>
 
       {/* Features */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 64 }}>
+      <div className={styles.featuresList}>
         {TECH_FEATURES.map((f) => (
-          <div key={f.icon} className="glass-panel" style={{ padding: 28, borderRadius: 'var(--radius-xl)' }}>
-            <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-              <div style={{
-                width: 48, height: 48, borderRadius: 'var(--radius-xl)',
-                background: 'rgba(0,88,188,0.08)', display: 'flex',
-                alignItems: 'center', justifyContent: 'center',
-                color: 'var(--primary)', flexShrink: 0,
-              }}>
+          <div key={f.icon} className={`glass-panel ${styles.featureCard}`}>
+            <div className={styles.featureInner}>
+              <div className={styles.featureIcon}>
                 <span className="material-symbols-outlined">{f.icon}</span>
               </div>
               <div>
-                <h3 className="body-lg" style={{ fontWeight: 600, marginBottom: 6, color: 'var(--on-surface)' }}>
+                <h3 className={`body-lg ${styles.featureTitle}`}>
                   {f.title}
                 </h3>
-                <p style={{ fontSize: 'var(--text-body-md)', color: 'var(--on-surface-variant)', lineHeight: 1.6 }}>
+                <p className={styles.featureDesc}>
                   {f.desc}
                 </p>
               </div>
@@ -87,20 +84,17 @@ export default function HowItWorks() {
       </div>
 
       {/* FAQ */}
-      <h2 className="label-md" style={{ color: 'var(--on-surface-variant)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 16 }}>
+      <h2 className={`label-md ${styles.faqHeader}`}>
         常见问题
       </h2>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div className={styles.faqList}>
         {FAQS.map((item) => (
-          <div key={item.q} className="glass-panel" style={{ padding: 24, borderRadius: 'var(--radius-xl)' }}>
-            <h3 style={{
-              fontSize: 'var(--text-body-md)', fontWeight: 600, marginBottom: 8, color: 'var(--on-surface)',
-              display: 'flex', alignItems: 'center', gap: 8,
-            }}>
-              <span className="material-symbols-outlined" style={{ color: 'var(--primary)', fontSize: 18 }}>check_circle</span>
+          <div key={item.q} className={`glass-panel ${styles.faqItem}`}>
+            <h3 className={styles.faqQuestion}>
+              <span className={`material-symbols-outlined ${styles.faqQuestionIcon}`}>check_circle</span>
               {item.q}
             </h3>
-            <p style={{ fontSize: 'var(--text-body-md)', color: 'var(--on-surface-variant)', lineHeight: 1.6, paddingLeft: 26 }}>
+            <p className={styles.faqAnswer}>
               {item.a}
             </p>
           </div>

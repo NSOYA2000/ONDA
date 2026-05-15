@@ -1,0 +1,138 @@
+/* ChooseFormat page specific styles */
+
+.emptyState {
+  text-align: center;
+  padding: 128px 0;
+}
+
+.emptyStateText {
+  color: var(--on-surface-variant);
+  margin-bottom: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-gutter);
+  align-items: start;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.fileCardTitle {
+  color: var(--on-surface);
+}
+
+.fileCardSubtitle {
+  color: var(--on-surface-variant);
+}
+
+.fileCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.fileCardMeta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.fileNameValue {
+  word-break: break-all;
+}
+
+.fileMetaValue {
+  font-size: var(--text-body-md);
+  font-weight: 500;
+}
+
+.techImage {
+  height: 192px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(193, 198, 215, 0.2);
+  box-shadow: var(--shadow-sm);
+}
+
+.techImageImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.formatPanel {
+  padding: 32px;
+  background: var(--surface-container-lowest);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.formatPanelTitle {
+  margin-bottom: 32px;
+}
+
+.formatSectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.formatSectionIcon {
+  font-size: 20px;
+  color: var(--on-surface-variant);
+}
+
+.formatSectionLabel {
+  color: var(--on-surface-variant);
+}
+
+.audioSection {
+  margin-bottom: 40px;
+}
+
+.videoSection {
+  margin-bottom: 48px;
+}
+
+.startSection {
+  margin-top: auto;
+  padding-top: 32px;
+  border-top: 1px solid rgba(193, 198, 215, 0.2);
+}
+
+.startHint {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.startHintColor {
+  color: var(--outline);
+}
+
+.moreFormatName {
+  color: var(--outline);
+}
+
+.moreFormatDesc {
+  color: var(--outline);
+}
+
+.btnIcon {
+  font-size: 20px;
+}
+
+.privacyNoticeTop {
+  margin-top: 48px;
+}
