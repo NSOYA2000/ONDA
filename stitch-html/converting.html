@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onda - 正在处理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dadadc",
+                        "secondary-fixed": "#e0e3e6",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#44474a",
+                        "outline-variant": "#c1c6d7",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-primary-fixed-variant": "#004493",
+                        "primary-fixed-dim": "#adc6ff",
+                        "outline": "#717786",
+                        "surface-container": "#eeeef0",
+                        "on-secondary-fixed": "#191c1e",
+                        "on-background": "#1a1c1e",
+                        "surface-container-high": "#e8e8ea",
+                        "on-primary-fixed": "#001a41",
+                        "primary-fixed": "#d8e2ff",
+                        "primary": "#0058bc",
+                        "surface-tint": "#005bc1",
+                        "tertiary-fixed": "#dbe2fa",
+                        "on-tertiary-container": "#fefcff",
+                        "surface": "#f9f9fc",
+                        "on-tertiary-fixed-variant": "#3f4759",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#0070eb",
+                        "on-secondary-container": "#616567",
+                        "inverse-surface": "#2f3133",
+                        "secondary-fixed-dim": "#c4c7ca",
+                        "tertiary-fixed-dim": "#bfc6dd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fefcff",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#adc6ff",
+                        "on-tertiary-fixed": "#141b2c",
+                        "on-surface": "#1a1c1e",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e2e2e5",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f9f9fc",
+                        "tertiary": "#545c70",
+                        "on-surface-variant": "#414755",
+                        "background": "#f9f9fc",
+                        "secondary-container": "#e0e3e6",
+                        "secondary": "#5b5f61",
+                        "inverse-on-surface": "#f0f0f3",
+                        "tertiary-container": "#6d7489",
+                        "surface-container-low": "#f3f3f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Sora"],
+                        "body-md": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "display-lg-mobile": ["Sora"],
+                        "label-md": ["Sora"],
+                        "label-sm": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "body-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 232, 240, 1);
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        /* Pulse wave animation container */
+        .wave-container {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            height: 40px;
+        }
+        .wave-bar {
+            width: 3px;
+            background: #0058bc;
+            border-radius: 9999px;
+            height: 20%;
+        }
+        /* Static wave heights for 75% state */
+        .wave-bar:nth-child(1) { height: 40%; }
+        .wave-bar:nth-child(2) { height: 70%; }
+        .wave-bar:nth-child(3) { height: 50%; }
+        .wave-bar:nth-child(4) { height: 90%; }
+        .wave-bar:nth-child(5) { height: 60%; }
+        .wave-bar:nth-child(6) { height: 80%; }
+        .wave-bar:nth-child(7) { height: 45%; }
+        .wave-bar:nth-child(8) { height: 75%; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed antialiased">
+<!-- TopNavBar (Suppressed for focused transactional flow as per instructions, but kept as a subtle branding shell if required. Instruction says "Exclude if sub-page featuring a 'Close' or 'Back' action". This screen is a linear process, so we use a minimal branding header instead.) -->
+<header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 h-16 flex items-center px-margin-desktop">
+<div class="max-w-container-max mx-auto w-full flex items-center justify-between">
+<div class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">Onda</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full border border-outline-variant/20">
+<span class="material-symbols-outlined text-[18px] text-primary" data-weight="fill">shield</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Privacy First</span>
+</div>
+</div>
+</header>
+<!-- Main Content: Progress View -->
+<main class="min-h-screen pt-32 pb-16 px-margin-mobile md:px-margin-desktop flex items-center justify-center">
+<div class="max-w-[640px] w-full space-y-12 text-center">
+<!-- File Info & Status -->
+<div class="space-y-4">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary-container/50 rounded-full text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]" data-icon="audio_file">audio_file</span>
+<span class="font-label-md text-label-md">recording_session_042.wav</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">正在处理音频...</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">正在应用深度降噪与声学增强</p>
+</div>
+<!-- Progress Visualization -->
+<div class="relative flex justify-center items-center">
+<!-- Large Elegant Circular Progress -->
+<div class="relative w-64 h-64 md:w-80 md:h-80">
+<!-- Background Circle -->
+<svg class="w-full h-full">
+<circle class="text-surface-container-high" cx="50%" cy="50%" fill="transparent" r="48%" stroke="currentColor" stroke-width="8"></circle>
+<!-- Progress Path (75%) -->
+<circle class="text-primary progress-ring-circle" cx="50%" cy="50%" fill="transparent" r="48%" stroke="currentColor" stroke-dasharray="753" stroke-dashoffset="188" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<!-- Center Content -->
+<div class="absolute inset-0 flex flex-col items-center justify-center space-y-2">
+<span class="font-display-lg text-display-lg text-primary">75%</span>
+<div class="wave-container">
+<div class="wave-bar"></div>
+<div class="wave-bar"></div>
+<div class="wave-bar"></div>
+<div class="wave-bar"></div>
+<div class="wave-bar"></div>
+<div class="wave-bar"></div>
+<div class="wave-bar"></div>
+<div class="wave-bar"></div>
+</div>
+</div>
+</div>
+<!-- Floating Tech Insight (Glassmorphism) -->
+<div class="absolute -bottom-6 left-1/2 -translate-x-1/2 glass-panel px-6 py-4 rounded-xl shadow-sm border border-outline-variant/30 flex items-center gap-4 w-max">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined" data-icon="memory">memory</span>
+</div>
+<div class="text-left">
+<p class="font-label-md text-label-md text-on-surface">本地 CPU 处理</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">数据未离开您的设备</p>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="pt-8 flex flex-col items-center gap-6">
+<button class="flex items-center gap-2 px-8 py-3 rounded-full border border-outline hover:bg-surface-container-high transition-colors duration-200 active:scale-95 group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-error transition-colors" data-icon="cancel">cancel</span>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-on-surface">取消处理</span>
+</button>
+<div class="flex items-center gap-8 px-8 py-4 bg-surface-container-low rounded-2xl border border-outline-variant/10">
+<div class="text-center">
+<p class="font-label-sm text-label-sm text-outline">预计剩余</p>
+<p class="font-body-md text-body-md font-bold text-on-surface">45 秒</p>
+</div>
+<div class="h-8 w-px bg-outline-variant/30"></div>
+<div class="text-center">
+<p class="font-label-sm text-label-sm text-outline">处理器负载</p>
+<p class="font-body-md text-body-md font-bold text-on-surface">12%</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer: Minimal Copyright Text -->
+<footer class="w-full py-12 border-t border-outline-variant/20 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Onda</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Onda. 本地优先影音处理。</span>
+</div>
+<nav class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">支持格式</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">隐私条款</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">技术原理</a>
+</nav>
+</div>
+</footer>
+<!-- Background Decoration -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none opacity-40">
+<div class="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[0%] left-[-10%] w-[50%] h-[50%] bg-secondary-fixed/20 blur-[100px] rounded-full"></div>
+</div>
+</body></html>

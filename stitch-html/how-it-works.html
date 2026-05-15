@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onda - 工作原理 | 本地化音视频处理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dadadc",
+                        "secondary-fixed": "#e0e3e6",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#44474a",
+                        "outline-variant": "#c1c6d7",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-primary-fixed-variant": "#004493",
+                        "primary-fixed-dim": "#adc6ff",
+                        "outline": "#717786",
+                        "surface-container": "#eeeef0",
+                        "on-secondary-fixed": "#191c1e",
+                        "on-background": "#1a1c1e",
+                        "surface-container-high": "#e8e8ea",
+                        "on-primary-fixed": "#001a41",
+                        "primary-fixed": "#d8e2ff",
+                        "primary": "#0058bc",
+                        "surface-tint": "#005bc1",
+                        "tertiary-fixed": "#dbe2fa",
+                        "on-tertiary-container": "#fefcff",
+                        "surface": "#f9f9fc",
+                        "on-tertiary-fixed-variant": "#3f4759",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#0070eb",
+                        "on-secondary-container": "#616567",
+                        "inverse-surface": "#2f3133",
+                        "secondary-fixed-dim": "#c4c7ca",
+                        "tertiary-fixed-dim": "#bfc6dd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fefcff",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#adc6ff",
+                        "on-tertiary-fixed": "#141b2c",
+                        "on-surface": "#1a1c1e",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e2e2e5",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f9f9fc",
+                        "tertiary": "#545c70",
+                        "on-surface-variant": "#414755",
+                        "background": "#f9f9fc",
+                        "secondary-container": "#e0e3e6",
+                        "secondary": "#5b5f61",
+                        "inverse-on-surface": "#f0f0f3",
+                        "tertiary-container": "#6d7489",
+                        "surface-container-low": "#f3f3f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Sora"],
+                        "body-md": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "display-lg-mobile": ["Sora"],
+                        "label-md": ["Sora"],
+                        "label-sm": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "body-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 232, 240, 1);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopAppBar Shell -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="max-w-container-max mx-auto px-margin-desktop flex items-center justify-between h-16">
+<div class="flex items-center gap-8">
+<span class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">Onda</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">首页</a>
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary transition-colors duration-200" href="#">工作原理</a>
+<a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">支持格式</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="hidden sm:block font-label-md text-label-md text-primary font-semibold px-4 py-2 bg-primary/10 rounded-full">Privacy First</span>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all">
+                    开始转换
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-desktop text-center mb-24">
+<h1 class="font-display-lg text-display-lg mb-6 max-w-3xl mx-auto">
+                重新定义音视频处理的<span class="text-primary">隐私边界</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Onda 采用尖端的 WebAssembly 技术，让复杂的媒体转换任务直接在您的浏览器中完成。
+                数据不离机，处理不云端。
+            </p>
+</section>
+<!-- 3-Step Process -->
+<section class="max-w-container-max mx-auto px-margin-desktop mb-32">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<!-- Decorative Connector Line -->
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-outline-variant/30 -z-10"></div>
+<!-- Step 1 -->
+<div class="glass-card p-10 rounded-xl flex flex-col items-start gap-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="upload_file">upload_file</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2 block">步骤 01</span>
+<h3 class="font-headline-md text-headline-md mb-3">浏览器沙盒输入</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            将文件拖入浏览器。文件被加载到本地内存沙盒中，从未上传到任何远程服务器。
+                        </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="glass-card p-10 rounded-xl flex flex-col items-start gap-6 shadow-sm border-primary/20 border-2 scale-105 z-10 bg-surface-container-lowest">
+<div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-3xl" data-icon="memory">memory</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2 block">步骤 02</span>
+<h3 class="font-headline-md text-headline-md mb-3">本地 FFmpeg 引擎</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            借助 WebAssembly (WASM) 技术，FFmpeg 直接在您的 CPU 上运行。利用硬件加速实现极速转换。
+                        </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="glass-card p-10 rounded-xl flex flex-col items-start gap-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="download">download</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2 block">步骤 03</span>
+<h3 class="font-headline-md text-headline-md mb-3">直接本地下载</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            处理完成后，结果直接从内存导出到本地磁盘。没有网络延迟，没有隐私泄露风险。
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Deep Dive -->
+<section class="max-w-container-max mx-auto px-margin-desktop mb-32">
+<div class="glass-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center">
+<div class="p-12 lg:p-16">
+<h2 class="font-headline-lg text-headline-lg mb-6">核心技术：WebAssembly</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        传统的视频转换依赖于庞大的服务器集群，这不仅消耗带宽，更让您的私人数据暴露在公网中。Onda 突破性地将 FFmpeg 编译为 WebAssembly 模块，这是一种二进制指令格式，让 C/C++ 代码能以接近原生的速度在所有现代浏览器中运行。
+                    </p>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">FFmpeg.wasm 强力驱动</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">利用多线程 CPU 优化</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md">全量指令集支持</span>
+</div>
+</div>
+</div>
+<div class="relative h-full min-h-[400px] bg-primary-fixed/30 flex items-center justify-center p-8">
+<img alt="Technical Illustration" class="rounded-xl shadow-2xl w-full h-full object-cover" data-alt="A futuristic technical line-art illustration showcasing a computer chip glowing with neon blue circuitry patterns on a clean light-grey background. Subtle floating code snippets and geometric data visualization elements surround the central processor, representing high-speed computing and WebAssembly technology. The lighting is bright and professional, maintaining a clean light-mode aesthetic with soft ambient shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnJbVF2oxLxbRno45hyq0sKKpWhXimCiDGJ__-m08GPbF-P2JHNtLWOo0SqkIns27sZDdVU6j_lXPS3JYW-8d-bx2Qto2NV9r-oCiofUiIgjvMcqZ1zgMbd9JkJWzWfN5HuILFcdy61K6JtAevbBFPBCPFsJjXdHwCh1aIRffD936AJX7rnjE_2BOb3VJBNXDh9iu81ZGlVEqccLHX1K2is9Zkrjw2rn-q5QEiCnnKfRhFuKSStmyih61EtfMT98BOIcjWBuPFXrs"/>
+</div>
+</div>
+</section>
+<!-- Why Onda? -->
+<section class="max-w-container-max mx-auto px-margin-desktop mb-32">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">为什么选择 Onda？</h2>
+<div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="flex gap-6 items-start">
+<div class="bg-surface-container p-4 rounded-xl">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="shield_lock">shield_lock</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">零风险隐私</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            绝不上传。您的视频内容是您的资产，Onda 确保它们永远留在您的受控范围内。对于敏感的会议记录或私人素材，这是唯一的安全选择。
+                        </p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="bg-surface-container p-4 rounded-xl">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="bolt">bolt</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">原生级性能</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            摒弃了网络传输的等待时间。对于大多数中小型文件，本地处理的启动速度远快于上传、队列等待和重新下载的总和。
+                        </p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="bg-surface-container p-4 rounded-xl">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="devices">devices</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">跨平台一致性</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            无论您使用的是 macOS, Windows 还是 Linux，只要有 Chrome 或 Edge 浏览器，就能享受到完全一致的高性能处理体验。
+                        </p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="bg-surface-container p-4 rounded-xl">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="cloud_off">cloud_off</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">离线可用</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            核心引擎加载完成后，您即使在断网状态下也能继续处理任务。不再受制于波动的网络带宽。
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="max-w-container-max mx-auto px-margin-desktop">
+<div class="bg-primary rounded-[2rem] p-12 md:p-20 text-center text-on-primary relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-primary-container/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
+<h2 class="font-display-lg text-display-lg mb-6 relative z-10">准备好体验极致处理速度了吗？</h2>
+<p class="font-body-lg text-body-lg mb-10 opacity-90 max-w-2xl mx-auto relative z-10">
+                    立即体验无需上传的媒体转换。安全、快速、本地化。
+                </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
+<button class="bg-white text-primary px-10 py-4 rounded-full font-label-md text-label-md font-bold hover:bg-surface transition-all active:scale-95 shadow-xl shadow-black/10">
+                        立刻开始转换
+                    </button>
+<button class="border border-white/30 text-white px-10 py-4 rounded-full font-label-md text-label-md font-medium hover:bg-white/10 transition-all">
+                        查看支持格式
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20 w-full py-12">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface block mb-2">Onda</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Onda. 本地化音视频处理领导者。</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">工作原理</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">支持格式</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">服务条款</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">技术白皮书</a>
+</div>
+</div>
+</footer>
+</body></html>

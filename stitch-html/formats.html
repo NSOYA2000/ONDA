@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dadadc",
+                    "secondary-fixed": "#e0e3e6",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#44474a",
+                    "outline-variant": "#c1c6d7",
+                    "surface-container-highest": "#e2e2e5",
+                    "on-primary-fixed-variant": "#004493",
+                    "primary-fixed-dim": "#adc6ff",
+                    "outline": "#717786",
+                    "surface-container": "#eeeef0",
+                    "on-secondary-fixed": "#191c1e",
+                    "on-background": "#1a1c1e",
+                    "surface-container-high": "#e8e8ea",
+                    "on-primary-fixed": "#001a41",
+                    "primary-fixed": "#d8e2ff",
+                    "primary": "#0058bc",
+                    "surface-tint": "#005bc1",
+                    "tertiary-fixed": "#dbe2fa",
+                    "on-tertiary-container": "#fefcff",
+                    "surface": "#f9f9fc",
+                    "on-tertiary-fixed-variant": "#3f4759",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#0070eb",
+                    "on-secondary-container": "#616567",
+                    "inverse-surface": "#2f3133",
+                    "secondary-fixed-dim": "#c4c7ca",
+                    "tertiary-fixed-dim": "#bfc6dd",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#fefcff",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#adc6ff",
+                    "on-tertiary-fixed": "#141b2c",
+                    "on-surface": "#1a1c1e",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e2e2e5",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f9f9fc",
+                    "tertiary": "#545c70",
+                    "on-surface-variant": "#414755",
+                    "background": "#f9f9fc",
+                    "secondary-container": "#e0e3e6",
+                    "secondary": "#5b5f61",
+                    "inverse-on-surface": "#f0f0f3",
+                    "tertiary-container": "#6d7489",
+                    "surface-container-low": "#f3f3f6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "container-max": "1280px",
+                    "margin-desktop": "48px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Sora"],
+                    "body-md": ["Sora"],
+                    "display-lg": ["Sora"],
+                    "display-lg-mobile": ["Sora"],
+                    "label-md": ["Sora"],
+                    "label-sm": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "body-lg": ["Sora"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 232, 240, 1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary/20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="max-w-container-max mx-auto px-margin-desktop flex items-center justify-between h-16">
+<div class="flex items-center gap-8">
+<span class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">Onda</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">首页</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">工作原理</a>
+<a class="text-primary font-bold border-b-2 border-primary" href="#">支持格式</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-md text-label-md text-primary bg-primary-fixed/30 px-3 py-1 rounded-full">Privacy First</span>
+<button class="md:hidden">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<!-- Hero Header -->
+<header class="mb-16 text-center md:text-left">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-4">全面支持的音视频格式</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Onda 采用本地优先的高性能处理引擎，支持市面上主流的各类多媒体封装格式与编码标准，确保您的创作流转无虞。
+                </p>
+</header>
+<!-- Search Bar Integration -->
+<div class="mb-12">
+<div class="relative max-w-xl group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-xl border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="搜索格式 (例如: MP4, FLAC...)" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Main Content Area (8 Cols) -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Audio Section -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">audiotrack</span>
+</div>
+<h2 class="font-headline-md text-headline-md">音频格式</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- MP3 -->
+<div class="glass-card p-6 rounded-xl hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<span class="font-bold text-headline-md text-primary">MP3</span>
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-label-sm rounded uppercase">Standard</span>
+</div>
+<p class="text-on-surface-variant text-body-md">最通用的音频压缩格式，平衡文件大小与兼容性。</p>
+</div>
+<!-- WAV -->
+<div class="glass-card p-6 rounded-xl hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<span class="font-bold text-headline-md text-primary">WAV</span>
+<span class="px-2 py-1 bg-primary/10 text-primary text-label-sm rounded uppercase">Lossless</span>
+</div>
+<p class="text-on-surface-variant text-body-md">无损解压音频，适用于录音室专业编辑与母带制作。</p>
+</div>
+<!-- FLAC -->
+<div class="glass-card p-6 rounded-xl hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<span class="font-bold text-headline-md text-primary">FLAC</span>
+<span class="px-2 py-1 bg-primary/10 text-primary text-label-sm rounded uppercase">Lossless</span>
+</div>
+<p class="text-on-surface-variant text-body-md">无损压缩音频，在高保真播放中保留每一丝细节。</p>
+</div>
+<!-- AAC -->
+<div class="glass-card p-6 rounded-xl hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<span class="font-bold text-headline-md text-primary">AAC</span>
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-label-sm rounded uppercase">Standard</span>
+</div>
+<p class="text-on-surface-variant text-body-md">Apple 与现代流媒体的首选格式，效率优于 MP3。</p>
+</div>
+</div>
+</section>
+<!-- Video Section -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<h2 class="font-headline-md text-headline-md">视频格式</h2>
+</div>
+<div class="space-y-4">
+<!-- MP4 -->
+<div class="glass-card p-6 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<span class="font-bold text-headline-md text-primary block mb-1">MP4</span>
+<p class="text-on-surface-variant text-body-md">业界标准容器，原生支持 H.264 / H.265 (HEVC) 硬件加速。</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 border border-outline-variant text-label-sm rounded-full">4K Support</span>
+<span class="px-3 py-1 border border-outline-variant text-label-sm rounded-full">HDR10</span>
+</div>
+</div>
+<!-- MOV -->
+<div class="glass-card p-6 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<span class="font-bold text-headline-md text-primary block mb-1">MOV</span>
+<p class="text-on-surface-variant text-body-md">Apple QuickTime 格式，完美兼容 ProRes 代理与高质量素材。</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 border border-outline-variant text-label-sm rounded-full">ProRes</span>
+<span class="px-3 py-1 border border-outline-variant text-label-sm rounded-full">Alpha</span>
+</div>
+</div>
+<!-- WebM -->
+<div class="glass-card p-6 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<span class="font-bold text-headline-md text-primary block mb-1">WebM</span>
+<p class="text-on-surface-variant text-body-md">面向网络的开放格式，支持 VP8/VP9 编码，体积极小。</p>
+</div>
+<div class="flex gap-2 text-on-primary-container bg-primary-container/10">
+<span class="px-3 py-1 rounded-full text-label-sm">Web-optimized</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar (4 Cols) -->
+<aside class="lg:col-span-4 space-y-8">
+<div class="bg-surface-container-low rounded-2xl p-8 border border-outline-variant/50 sticky top-24">
+<h3 class="font-headline-md text-headline-md mb-6">技术规格说明</h3>
+<div class="space-y-6">
+<div>
+<label class="font-label-md text-primary uppercase tracking-wider mb-2 block">比特率 (Bitrate)</label>
+<p class="text-body-md text-on-surface-variant mb-4">
+                                    每秒处理的数据量。Onda 支持动态比特率 (VBR) 和恒定比特率 (CBR)，最高可达 320kbps (音频) 及 100Mbps (视频)。
+                                </p>
+<div class="h-1 bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4"></div>
+</div>
+</div>
+<div>
+<label class="font-label-md text-primary uppercase tracking-wider mb-2 block">分辨率 (Resolution)</label>
+<ul class="space-y-2 text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                                        HD (1280 x 720)
+                                    </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                                        Full HD (1920 x 1080)
+                                    </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">stars</span>
+                                        Ultra HD (3840 x 2160)
+                                    </li>
+</ul>
+</div>
+<div class="pt-6 border-t border-outline-variant/30">
+<div class="aspect-video rounded-xl bg-surface-container-highest overflow-hidden relative group">
+<img class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" data-alt="A futuristic and professional high-tech laboratory setting with blue glowing screens displaying complex data visualizations and waveforms. The environment is clean, bright, and minimalist, emphasizing precision engineering and advanced digital signal processing. Subtle light-mode aesthetics with soft ambient lighting and sharp, high-contrast UI elements create a feeling of effortless technological power and reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD93-6brOODgFs0GhEojIZWlqInMFv4graYgc1uCLW-D3Fjds8jKR_7tlEWm7ompr_CAKngF6_66Twb_kHoVzJV6AXrzHDl6EBw-uo2d18LBjVlglW0n5AD4hjXGg97Lw7-ZA640Wr5V-8YU6WhT-1kQm0gQjwGL5kYepKzbgA3I0m_0NMDX8HXwlQwlkfUONYUAb_yxTm1NZQCHM3f2fM_TOKzgXCaE3qHhPiz3TGJb4MPh0v_TCMGl53T2h08U1eDtOa4bO9fBqs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="text-label-sm font-bold text-on-surface">本地加速引擎已就绪</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface mb-4 block">Onda</span>
+<p class="text-on-surface-variant text-body-md">© 2024 Onda. Local-first AV processing.</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end">
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-all" href="#">How it works</a>
+<a class="text-primary underline font-label-sm transition-all" href="#">Supported formats</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-all" href="#">Terms</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-all" href="#">Technology</a>
+</div>
+</div>
+</footer>
+</body></html>

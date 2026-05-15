@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="zh"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onda - 转换成功</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dadadc",
+                        "secondary-fixed": "#e0e3e6",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#44474a",
+                        "outline-variant": "#c1c6d7",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-primary-fixed-variant": "#004493",
+                        "primary-fixed-dim": "#adc6ff",
+                        "outline": "#717786",
+                        "surface-container": "#eeeef0",
+                        "on-secondary-fixed": "#191c1e",
+                        "on-background": "#1a1c1e",
+                        "surface-container-high": "#e8e8ea",
+                        "on-primary-fixed": "#001a41",
+                        "primary-fixed": "#d8e2ff",
+                        "primary": "#0058bc",
+                        "surface-tint": "#005bc1",
+                        "tertiary-fixed": "#dbe2fa",
+                        "on-tertiary-container": "#fefcff",
+                        "surface": "#f9f9fc",
+                        "on-tertiary-fixed-variant": "#3f4759",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#0070eb",
+                        "on-secondary-container": "#616567",
+                        "inverse-surface": "#2f3133",
+                        "secondary-fixed-dim": "#c4c7ca",
+                        "tertiary-fixed-dim": "#bfc6dd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fefcff",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#adc6ff",
+                        "on-tertiary-fixed": "#141b2c",
+                        "on-surface": "#1a1c1e",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e2e2e5",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f9f9fc",
+                        "tertiary": "#545c70",
+                        "on-surface-variant": "#414755",
+                        "background": "#f9f9fc",
+                        "secondary-container": "#e0e3e6",
+                        "secondary": "#5b5f61",
+                        "inverse-on-surface": "#f0f0f3",
+                        "tertiary-container": "#6d7489",
+                        "surface-container-low": "#f3f3f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Sora"],
+                        "body-md": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "display-lg-mobile": ["Sora"],
+                        "label-md": ["Sora"],
+                        "label-sm": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "body-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid #E2E8F0;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-container/70 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="max-w-container-max mx-auto px-margin-desktop flex items-center justify-between h-16">
+<div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed tracking-tight">Onda</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 font-label-md text-label-md" href="#">首页</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 font-label-md text-label-md" href="#">工作原理</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 font-label-md text-label-md" href="#">支持格式</a>
+</div>
+<div class="flex items-center space-x-4">
+<span class="font-label-md text-label-md text-primary dark:text-primary-fixed bg-primary-fixed/20 px-3 py-1 rounded-full">Privacy First</span>
+</div>
+</div>
+</nav>
+<!-- Success Content Canvas -->
+<main class="flex-grow flex items-center justify-center pt-24 pb-12 px-margin-mobile md:px-margin-desktop">
+<div class="w-full max-w-2xl text-center space-y-12">
+<!-- Success Indicator -->
+<div class="relative inline-flex items-center justify-center">
+<div class="absolute inset-0 bg-primary/10 rounded-full blur-3xl opacity-50"></div>
+<div class="relative bg-primary text-white w-24 h-24 rounded-full flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 0, 'wght' 600;">check_circle</span>
+</div>
+</div>
+<!-- Header Text -->
+<div class="space-y-4">
+<h1 class="font-display-lg text-display-lg text-on-surface">转换已完成</h1>
+<p class="text-on-surface-variant font-body-lg">您的音频文件已成功处理，并已准备好下载。</p>
+</div>
+<!-- File Display Card (Glassmorphism) -->
+<div class="glass-card rounded-xl p-6 flex flex-col md:flex-row items-center justify-between text-left gap-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="audio_file">audio_file</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">recording.mp3</h3>
+<p class="text-on-surface-variant font-label-sm text-label-sm">3.2 MB • 44.1kHz • 320kbps</p>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-low border border-outline-variant/30 rounded-full">
+<span class="material-symbols-outlined text-primary scale-75" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">本地处理</span>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="flex flex-col gap-4 max-w-md mx-auto">
+<button class="w-full h-14 bg-primary hover:bg-primary-container text-white font-label-md text-headline-md rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/10 active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                    下载文件
+                </button>
+<div class="grid grid-cols-2 gap-4">
+<button class="h-12 bg-surface-container-lowest hover:bg-surface-container-low text-on-surface border border-outline-variant/50 font-label-md text-label-md rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+                        继续转换
+                    </button>
+<button class="h-12 bg-surface-container-lowest hover:bg-surface-container-low text-on-surface border border-outline-variant/50 font-label-md text-label-md rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+                        分享链接
+                    </button>
+</div>
+</div>
+<!-- Security Context / Illustration -->
+<div class="pt-8 border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="flex flex-col items-center text-center space-y-2">
+<span class="material-symbols-outlined text-primary/60" data-icon="shield_lock">shield_lock</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">端到端私密</p>
+</div>
+<div class="flex flex-col items-center text-center space-y-2">
+<span class="material-symbols-outlined text-primary/60" data-icon="memory">memory</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">本地算力处理</p>
+</div>
+<div class="flex flex-col items-center text-center space-y-2">
+<span class="material-symbols-outlined text-primary/60" data-icon="delete_sweep">delete_sweep</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">无云端存储</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest dark:bg-surface-container-low border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="space-y-4">
+<div class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface-variant">Onda</div>
+<p class="text-on-surface-variant font-body-md">© 2024 Onda. Local-first AV processing.</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-all cursor-pointer" href="#">How it works</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-all cursor-pointer" href="#">Supported formats</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-all cursor-pointer" href="#">Terms</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-all cursor-pointer" href="#">Technology</a>
+</div>
+</div>
+</footer>
+<!-- Decorative Elements (Subtle Gradients) -->
+<div class="fixed top-0 right-0 -z-10 w-1/2 h-1/2 bg-gradient-to-bl from-primary/5 to-transparent rounded-full blur-[120px]"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-1/2 h-1/2 bg-gradient-to-tr from-secondary-fixed/10 to-transparent rounded-full blur-[120px]"></div>
+</body></html>
