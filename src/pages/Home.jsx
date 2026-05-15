@@ -133,7 +133,7 @@ export default function Home() {
 
           <div style={{ position: 'relative' }}>
             <div className="tech-image-wrap glass-panel">
-              <img src="/images/tech-illustration.jpg" alt="Technology visualization" />
+              <img src={import.meta.env.BASE_URL + "images/tech-illustration.jpg"} alt="Technology visualization" />
             </div>
             <div className="tech-floating-card glass-panel" style={{ display: 'none' }}>
               {'{/* Hidden on mobile */}'}

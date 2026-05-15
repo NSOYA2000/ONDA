@@ -101,7 +101,7 @@ export default function ChooseFormat() {
           position: 'relative', border: '1px solid rgba(193,198,215,0.2)', boxShadow: 'var(--shadow-sm)',
         }}>
           <img
-            src="/images/tech-wave.jpg"
+            src={import.meta.env.BASE_URL + "images/tech-wave.jpg"}
             alt="Tech visualization"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
